@@ -1,2 +1,1 @@
-# Significance-of-First-10-Minutes-In-League-Of-Legends-Matches
-Final Project For DSC 80
+# Significance of The First 10 Minutes In League 0f Legends Matches
