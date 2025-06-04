@@ -11,7 +11,7 @@ Each League of Legends match consists of 2 teams of 5 players where the goal is 
 
 Each match lasts an average of around 30 minutes, but in games like League of Legends matches are often won within the first 10 minutes by the team that is more efficient and collect the most experience and gold, allowing them to gain an edge over the opponent early and making it easier to overwhelm the opposing team and win the match. The first 10 minutes are so important, many veteran and professional players have their own playbook to make the first 10 minutes the most efficient for themselves and for their team.
 
-The central question I am interested in is **How significant is the first 10 minutes of each League of Legends match in regards to gold collected?** I want to apply data analysis techniques to test the significance of the first 10 minutes and try to predict the outcome of each match just by looking at statistics gathered at the start of each match. 
+The central question I am interested in is **How significant is the first 10 minutes of each League of Legends match in regards to gold collected?** I want to apply data analysis techniques to test the significance of the first 10 minutes and try to predict the outcome of each match just by looking at statistics gathered at the start of each match. This analysis is significant because it will reveal whether or not having an efficient start of a League of Legends match is as crutial as all its players claim it is.
 
 The dataset I will be working with is Oracle's Elixer's 2022 dataset containing match data from professional League of Legends tournaments. There are a total of 127872 rows in this dataset, and below are the columns I will be working with for this analysis:
 
