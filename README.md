@@ -61,7 +61,7 @@ I first examined the distribution of gold earned throughout entire matches.
 <iframe
   src="assets/total-gold-hist.html"
   width="800"
-  height="600"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -102,5 +102,32 @@ Here is an interesting aggregate on the `results` column, aggregating by mean:
 
 |result|earnedgold|	goldat10|	  xpat10|	goldat25|
 |:-----|---------:|--------:|--------:|--------:|
-|False |  31278.94|	15343.22|	17986.11|	40939.26|
 |True	 |  41235.56|	16035.23|	18412.38|	45710.68|
+|False |  31278.94|	15343.22|	17986.11|	40939.26|
+
+Here I've included some of the columns that I think are interesting to mention. For all of the columns presented here the means for the row corresponding to winning teams are all greater than the row corresponding to losing teams. This once again shows that there is some level of connection between these whether or not a team wins their match and how much gold and experience they've collected.
+
+## Assessment of Missingness
+
+### NMAR Analysis
+
+Although this column was removed in the data cleaning section, I believe the `teamid` column is not missing at random. Upon inspection of the rows with the `teamid` column missing I cannot find any distinct connection between any of the other rows and this column. In professional League esports matches each team has their own team name but the team could be newly created, meaning although they have a team name and is allowed to play matches they haven't received their team id yet, thus making the missingness of this column dependent on its own values. One method of making this column MAR is to create a new column `newteam`, where a 1 indicates the team was just created and a 0 indicates the team was not just created.
+
+### Missingness Dependency
+
+Here, I am going to test the missingness dependency of `goldat25` column and see if it depends on other columns, specifically `firstdragon` and `league`.
+
+First I will test if `goldat25` is MAR on `firstdragon` column using Total Variation Distance on 0.05 significance level
+
+**Null Hypothesis:** distribution of `firstdragon` when `goldat25` is missing is the same distribution when `goldat25` is not missing
+
+**Alternative Hypothesis:** distribution of `firstdragon` when `goldat25` is missing is **not** the same distribution when `goldat25` is not missing
+
+Below is the emperical distribution of the permutation test:
+
+<iframe
+  src="assets/goldat25-firstdragon-hist.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
