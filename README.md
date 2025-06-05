@@ -59,7 +59,7 @@ This is what the first 5 rows of the dataframe looks like after all the data cle
 I first examined the distribution of gold earned throughout entire matches.
 
 <iframe
-  src="assets/total_gold_hist.html"
+  src="assets/total-gold-hist.html"
   width="800"
   height="600"
   frameborder="0"
