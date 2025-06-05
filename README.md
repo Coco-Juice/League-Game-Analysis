@@ -151,7 +151,7 @@ Next I will test if `goldat25` is MAR on `league` column.
 Below is the observed distribution:
 
 |gold25Missing	|   False|      True|
-|league	
+|league	        |        |          |
 |--------------:|:-------|:---------|
 |CBLOL	        |2.35e-02|	1.20e-02|
 |CBLOLA	        |2.11e-02|	7.47e-03|
