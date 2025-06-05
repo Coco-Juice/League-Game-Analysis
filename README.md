@@ -54,3 +54,13 @@ This is what the first 5 rows of the dataframe looks like after all the data cle
 |  2|ESPORTSTMNT01_2690219	|LCKC	|35.23	    |False	|False	    |False	    |False	    |   34688.0| 14939.0|17462.0|      1.0| 39335.0|
 |  3|ESPORTSTMNT01_2690219	|LCKC	|35.23	    |True	|True	    |True	    |True	    |   48063.0| 16558.0|19048.0|      3.0| 46615.0|
 |  4|ESPORTSTMNT01_2690227	|LCKC	|32.87	    |True	|True	    |False	    |True	    |   41372.0| 15466.0|19600.0|      0.0| 43989.0|
+
+### Univariate Analysis
+I first examined the distribution of gold earned throughout entire matches.
+
+<iframe
+  src="assets/total_gold_hist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
