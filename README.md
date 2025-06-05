@@ -148,6 +148,62 @@ Next I will test if `goldat25` is MAR on `league` column.
 
 **Alternative Hypothesis:** distribution of `league` when `goldat25` is missing is **not** the same distribution when `goldat25` is not missing
 
+Below is the observed distribution:
+
+|gold25Missing	|   False|      True|
+|league	
+|--------------:|:-------|:---------|
+|CBLOL	        |2.35e-02|	1.20e-02|
+|CBLOLA	        |2.11e-02|	7.47e-03|
+|CDF	          |6.81e-03|	1.20e-02|
+|CT	            |2.30e-03|	4.48e-03|
+|DDH	          |1.96e-02|	1.94e-02|
+|EBL	          |1.60e-02|	8.97e-03|
+|EBLPA	        |1.90e-03|	     NaN|
+|EL	            |1.18e-02|	2.54e-02|
+|ESLOL	        |2.24e-02|	2.39e-02|
+|EUM	          |2.48e-02|	2.84e-02|
+|GL	            |1.65e-02|	1.35e-02|
+|GLL	          |1.50e-02|	8.97e-03|
+|GLLPA	        |4.41e-03|	4.48e-03|
+|HC	            |1.56e-02|	8.97e-03|
+|HM	            |1.45e-02|	1.20e-02|
+|IC	            |6.11e-03|	2.09e-02|
+|LAS	          |2.01e-02|	3.89e-02|
+|LCK	          |4.54e-02|	2.09e-02|
+|LCKC	          |3.84e-02|	1.64e-02|
+|LCL	          |1.50e-03|	1.49e-03|
+|LCO	          |1.91e-02|	3.14e-02|
+|LCS	          |3.02e-02|	5.98e-03|
+|LEC	          |2.33e-02|	1.49e-02|
+|LFL	          |2.43e-02|	5.98e-03|
+|LFL2	          |2.33e-02|	1.20e-02|
+|LHE	          |2.30e-02|	2.09e-02|
+|LJL	          |2.07e-02|	1.20e-02|
+|LJLA	          |3.50e-03|	4.48e-03|
+|LLA	          |1.85e-02|	2.99e-03|
+|LMF	          |3.08e-02|	1.79e-02|
+|LPLOL	        |2.02e-02|	1.64e-02|
+|LVP SL	        |2.39e-02|	8.97e-03|
+|MSI	          |6.21e-03|	2.69e-02|
+|NEXO	          |1.85e-02|	1.35e-02|
+|NLC	          |2.30e-02|	2.09e-02|
+|NLC Aurora Open|1.23e-02|	2.54e-02|
+|PCS	          |2.48e-02|	3.74e-02|
+|PGC	          |5.08e-02|	8.52e-02|
+|PGN	          |1.44e-02|	8.97e-03|
+|PRM	          |2.28e-02|	1.35e-02|
+|PRMP	          |1.11e-02|	3.59e-02|
+|SL (LATAM)	    |1.56e-02|	1.35e-02|
+|TAL	          |1.93e-02|	1.79e-02|
+|TCL	          |2.02e-02|	3.14e-02|
+|UL	            |2.36e-02|	1.20e-02|
+|UPL	          |3.36e-02|	1.14e-01|
+|USP	          |3.30e-03|	1.49e-03|
+|VCS	          |3.02e-02|	3.44e-02|
+|VL	            |1.56e-02|	2.09e-02|
+|WLDs	          |1.34e-02|	1.05e-02|
+
 Below is the emperical distribution of the permutation test:
 
 <iframe
