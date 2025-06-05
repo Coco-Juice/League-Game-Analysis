@@ -99,3 +99,8 @@ As seen from this pie chart, 69.6% of the teams that won had more gold than thei
 
 ### Interesting Aggregates
 Here is an interesting aggregate on the `results` column, aggregating by mean:
+
+|result|earnedgold|	goldat10|	  xpat10|	goldat25|
+|:-----|---------:|--------:|--------:|--------:|
+|False |  31278.94|	15343.22|	17986.11|	40939.26|
+|True	 |  41235.56|	16035.23|	18412.38|	45710.68|
