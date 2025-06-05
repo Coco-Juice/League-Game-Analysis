@@ -64,3 +64,14 @@ I first examined the distribution of gold earned throughout entire matches.
   height="600"
   frameborder="0"
 ></iframe>
+
+The histogram plotted with regards to the `earnedgold` column is very close to being a normal distribution, which is good for future analysis, but my main focus is for gold earned after 10 minutes, so I also examined the distribution of the `goldat10` column.
+
+<iframe
+  src="assets/goldat10-hist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The histogram plotted with regards to the `goldat10` column has a roughly normal distribution with a right skew. The right skew makes sense in the context of League of Legends because there are many ways to gain an advantage over your opponents, not just gold, and many teams balance what they invest their first 10 minutes in, making the upper extremes of gold collected rarer.
