@@ -214,3 +214,25 @@ Below is the emperical distribution of the permutation test:
 ></iframe>
 
 The p-value of this statistic test is 0. Since the p-value is smaller than the 0.05 significance level, I reject the null hypothesis, thus the missingness of `goldat25` is MAR on `league` column.
+
+## Hypothesis Testing
+For this section, I want to see if there is a significance difference in the distribution of the amount of gold earned after 10 minutes for winning teams compared to losing teams. This permutation test will reveal if gold is a significant factor in determining if a team will ultimately win or lose their match.
+
+**Null Hypothesis:** the distribution for gold earned after 10 minutes is the same for winning and losing teams
+
+**Alternative Hypothesis:** the distribution for gold earned after 10 minutes is **not** the same for winning and losing teams
+
+**Test Statistic:** absolute difference in group means, because the histogram in the EDA section shows that the earnedgold column for winning and losing teams are shifted versions of each other, which the goldat10 column should follow the same pattern
+
+**Significance Level:** 0.05
+
+Below is the emperical distribution for the permutation test:
+
+<iframe
+  src="assets/goldat10-permtest-hist.html"
+  width="800"
+  height="430"
+  frameborder="0"
+></iframe>
+
+The observed statistic for this permutation test is 692.01 and the p-value is 0. Since the p-value is lower than the significance level of 0.05,thus the distribution of gold earned after 10 minutes for winning and losing teams are **not** the same. In addition, with how different the observed statistic is to the simulated statistics, it seems that gold earned has a significant impact on whether a team wins or loses a match. 
