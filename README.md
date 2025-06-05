@@ -128,7 +128,7 @@ Below is the emperical distribution of the permutation test:
 <iframe
   src="assets/goldat25-firstdragon-hist.html"
   width="800"
-  height="530"
+  height="430"
   frameborder="0"
 ></iframe>
 
@@ -145,7 +145,7 @@ Below is the emperical distribution of the permutation test:
 <iframe
   src="assets/goldat25-league-hist.html"
   width="800"
-  height="530"
+  height="430"
   frameborder="0"
 ></iframe>
 
