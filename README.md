@@ -117,17 +117,36 @@ Although this column was removed in the data cleaning section, I believe the `te
 
 Here, I am going to test the missingness dependency of `goldat25` column and see if it depends on other columns, specifically `firstdragon` and `league`.
 
-First I will test if `goldat25` is MAR on `firstdragon` column using Total Variation Distance on 0.05 significance level
+First I will test if `goldat25` is MAR on `firstdragon` column using Total Variation Distance on 0.05 significance level.
 
-**Null Hypothesis:** distribution of `firstdragon` when `goldat25` is missing is the same distribution when `goldat25` is not missing
+**Null Hypothesis:** distribution of `firstdragon` when `goldat25` is missing is the same distribution when `goldat25` is not missing.
 
-**Alternative Hypothesis:** distribution of `firstdragon` when `goldat25` is missing is **not** the same distribution when `goldat25` is not missing
+**Alternative Hypothesis:** distribution of `firstdragon` when `goldat25` is missing is **not** the same distribution when `goldat25` is not missing.
 
 Below is the emperical distribution of the permutation test:
 
 <iframe
   src="assets/goldat25-firstdragon-hist.html"
   width="800"
-  height="500"
+  height="530"
   frameborder="0"
 ></iframe>
+
+The p-value of this statistic test is 0.914. Since the p-value is much greater than the 0.05 significance level, I accept the null hypothesis, thus missingness of `goldat25` **not MAR** on `firstdragon` column.
+
+Next I will test if `goldat25` is MAR on `league` column.
+
+**Null Hypothesis:** distribution of `league` when `goldat25` is missing is the same distribution when `goldat25` is not missing
+
+**Alternative Hypothesis:** distribution of `league` when `goldat25` is missing is **not** the same distribution when `goldat25` is not missing
+
+Below is the emperical distribution of the permutation test:
+
+<iframe
+  src="assets/goldat25-league-hist.html"
+  width="800"
+  height="530"
+  frameborder="0"
+></iframe>
+
+The p-value of this statistic test is 0. Since the p-value is smaller than the 0.05 significance level, I reject the null hypothesis, thus the missingness of `goldat25` is MAR on `league` column.
