@@ -91,7 +91,7 @@ From the overlapping histogram we can see that on average winning teams earned m
 <iframe
   src="assets/goldat10-pie.html"
   width="800"
-  height="400"
+  height="450"
   frameborder="0"
 ></iframe>
 
