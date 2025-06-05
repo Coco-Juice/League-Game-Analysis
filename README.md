@@ -64,6 +64,7 @@ I first examined the distribution of gold earned throughout entire matches.
   height="600"
   frameborder="0"
 ></iframe>
+
 The histogram plotted with regards to the `earnedgold` column is very close to being a normal distribution, which is good for future analysis, but my main focus is for gold earned after 10 minutes, so I also examined the distribution of the `goldat10` column.
 
 <iframe
@@ -72,4 +73,26 @@ The histogram plotted with regards to the `earnedgold` column is very close to b
   height="600"
   frameborder="0"
 ></iframe>
+
 The histogram plotted with regards to the `goldat10` column has a roughly normal distribution with a right skew. The right skew makes sense in the context of League of Legends because there are many ways to gain an advantage over your opponents, not just gold, and many teams balance what they invest their first 10 minutes in, making the upper extremes of gold collected rarer.
+
+### Bivariate Analysis
+Next, I want to examine if there is a distinction between the total gold earned by winning teams verses losing teams
+
+<iframe
+  src="assets/total-gold-hist-on-result.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+From the overlapping histogram we can see that on average winning teams earned more gold compared to losing teams, suggesting that there is some level of connection between the amount of gold a team earned and whether or not that team won. Let's see if the trend holds up for gold earned after 10 minutes
+
+<iframe
+  src="assets/goldat10-pie.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+As seen from this pie chart, 69.6% of the teams that won had more gold than their opponent after 10 minutes compared to only 30.4% of teams who won with less gold than their opponent. Evidently, if you have earned more gold than your opponent, even after only 10 minutes, you are more likely to win. Obviously it is not impossible to win if you have less gold than your opponent, as seen from 30.4% of teams in 2022 won with less gold, but it is less likely to happen.
