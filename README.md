@@ -61,7 +61,7 @@ I first examined the distribution of gold earned throughout entire matches.
 <iframe
   src="assets/total-gold-hist.html"
   width="800"
-  height="500"
+  height="530"
   frameborder="0"
 ></iframe>
 
@@ -70,7 +70,7 @@ The histogram plotted with regards to the `earnedgold` column is very close to b
 <iframe
   src="assets/goldat10-hist.html"
   width="800"
-  height="500"
+  height="530"
   frameborder="0"
 ></iframe>
 
@@ -82,7 +82,7 @@ Next, I want to examine if there is a distinction between the total gold earned 
 <iframe
   src="assets/total-gold-hist-on-result.html"
   width="800"
-  height="500"
+  height="530"
   frameborder="0"
 ></iframe>
 
@@ -91,7 +91,7 @@ From the overlapping histogram we can see that on average winning teams earned m
 <iframe
   src="assets/goldat10-pie.html"
   width="800"
-  height="450"
+  height="430"
   frameborder="0"
 ></iframe>
 
