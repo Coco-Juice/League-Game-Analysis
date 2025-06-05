@@ -123,6 +123,14 @@ First I will test if `goldat25` is MAR on `firstdragon` column using Total Varia
 
 **Alternative Hypothesis:** distribution of `firstdragon` when `goldat25` is missing is **not** the same distribution when `goldat25` is not missing.
 
+Below is the observed distribution:
+
+|gold25Missing|False	True|
+|firstdragon  |    |      |
+|------------:|---:|-----:|
+|False	      | 0.5|	 0.5|
+|True	        | 0.5|   0.5|
+
 Below is the emperical distribution of the permutation test:
 
 <iframe
