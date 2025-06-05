@@ -70,7 +70,7 @@ The histogram plotted with regards to the `earnedgold` column is very close to b
 <iframe
   src="assets/goldat10-hist.html"
   width="800"
-  height="600"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -82,7 +82,7 @@ Next, I want to examine if there is a distinction between the total gold earned 
 <iframe
   src="assets/total-gold-hist-on-result.html"
   width="800"
-  height="600"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -91,8 +91,11 @@ From the overlapping histogram we can see that on average winning teams earned m
 <iframe
   src="assets/goldat10-pie.html"
   width="800"
-  height="600"
+  height="500"
   frameborder="0"
 ></iframe>
 
 As seen from this pie chart, 69.6% of the teams that won had more gold than their opponent after 10 minutes compared to only 30.4% of teams who won with less gold than their opponent. Evidently, if you have earned more gold than your opponent, even after only 10 minutes, you are more likely to win. Obviously it is not impossible to win if you have less gold than your opponent, as seen from 30.4% of teams in 2022 won with less gold, but it is less likely to happen.
+
+### Interesting Aggregates
+Here is an interesting aggregate on the `results` column, aggregating by mean:
