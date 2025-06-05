@@ -125,11 +125,11 @@ First I will test if `goldat25` is MAR on `firstdragon` column using Total Varia
 
 Below is the observed distribution:
 
-|gold25Missing|False	True|
-|firstdragon  |    |      |
-|------------:|---:|-----:|
-|False	      | 0.5|	 0.5|
-|True	        | 0.5|   0.5|
+|gold25Missing|False|	 True|
+|firstdragon  |     |      |
+|------------:|----:|-----:|
+|False	      |  0.5|	  0.5|
+|True	        |  0.5|   0.5|
 
 Below is the emperical distribution of the permutation test:
 
