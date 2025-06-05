@@ -41,6 +41,16 @@ The dataset I will be working with is Oracle's Elixer's 2022 dataset containing 
 
 ## Data Cleaning and Exploratory Data Analysis
 ### Data Cleaning
-First, I will filter to keep only the columns mentioned above since the rest are not useful to the rest of the analysis. Like I mentioned before, for each `gameid` there are 12 rows but for my analysis I am interested in the 2 rows that have summary data for the teams, so I will filter to only keep those 2 rows for each `gameid`, taking the row count down to 25098. Additionally, in the dataset there is a column `datacompleteness` which indicates if there are missing data within the row entry. A vast majority of the entries have missing data within the columns I mentioned above and it is impossible to impute the missing data due to all of them having a dependence on 5 specific leagues in the `league` column that have no filled entries. Due to this, I will also be removing any rows that are marked 'partial' in the `datacompleteness` column, dropping the row count to 21312.
+First, I will filter to keep only the columns mentioned above since the rest are not useful to the rest of the analysis. Like I mentioned before, for each `gameid` there are 12 rows but for my analysis I am interested in the 2 rows that have summary data for the teams, so I will filter to only keep those 2 rows for each `gameid`, taking the row count down to 25098. Additionally, in the dataset there is a column `datacompleteness` which indicates if there are missing data within the row entry. Almost all of the entries that are labeled 'partial' have missing data within the columns I mentioned above. Moreover, it is impossible to impute the missing data due to all of them having a dependence on 5 specific leagues in the `league` column that have no filled entries. Due to this, I will also be removing any rows that are marked 'partial' in the `datacompleteness` column, dropping the row count to 21312.
 
-The columns `firstdragon`, `firstblood`, and `firsttower` are stored as 1s and 0s when they should be stored as boolean values, so I will change these 3 columns to hold bools instead of integers.
+Next, the columns `firstdragon`, `firstblood`, `firsttower`, and `result` are stored as 1s and 0s when they should be stored as boolean values, so I will change these 3 columns to hold bools instead of integers. Finally, I decided to change `gamelength` from storing the time of matches in seconds into minutes, which will make analysis simpler later.
+
+This is what the first 5 rows of the dataframe looks like after all the data cleaning steps:
+
+|	|gameid	                |league |gamelength |result	|firstdragon|firstblood |firsttower |earnedgold|goldat10| xpat10|killsat10|goldat25|
+|--:|:----------------------|:------|----------:|:------|:----------|:----------|:----------|---------:|-------:|------:|--------:|-------:|
+|  0|ESPORTSTMNT01_2690210	|LCKC   |28.55	    |False	|False	    |True	    |True	    |   28222.0| 16218.0|18213.0|      3.0| 40224.0|
+|  1|ESPORTSTMNT01_2690210	|LCKC	|28.55	    |True	|True	    |False	    |False	    |   33769.0| 14695.0|18076.0|      0.0| 40136.0|
+|  2|ESPORTSTMNT01_2690219	|LCKC	|35.23	    |False	|False	    |False	    |False	    |   34688.0| 14939.0|17462.0|      1.0| 39335.0|
+|  3|ESPORTSTMNT01_2690219	|LCKC	|35.23	    |True	|True	    |True	    |True	    |   48063.0| 16558.0|19048.0|      3.0| 46615.0|
+|  4|ESPORTSTMNT01_2690227	|LCKC	|32.87	    |True	|True	    |False	    |True	    |   41372.0| 15466.0|19600.0|      0.0| 43989.0|
