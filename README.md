@@ -65,7 +65,7 @@ I first examined the distribution of gold earned throughout entire matches.
   frameborder="0"
 ></iframe>
 
-The histogram plotted with regards to the `earnedgold` column is very close to being a normal distribution, which is good for future analysis, but my main focus is for gold earned after 10 minutes, so I also examined the distribution of the `goldat10` column.
+The histogram plotted with regards to the `earnedgold` column is very close to being a normal distribution, which will make future analysis and testing easier, but my main focus is for gold earned after 10 minutes, so I also examined the distribution of the `goldat10` column.
 
 <iframe
   src="assets/goldat10-hist.html"
@@ -74,7 +74,7 @@ The histogram plotted with regards to the `earnedgold` column is very close to b
   frameborder="0"
 ></iframe>
 
-The histogram plotted with regards to the `goldat10` column has a roughly normal distribution with a right skew. The right skew makes sense in the context of League of Legends because there are many ways to gain an advantage over your opponents, not just gold, and many teams balance what they invest their first 10 minutes in, making the upper extremes of gold collected rarer.
+The histogram plotted with regards to the `goldat10` column has a roughly normal distribution with a slight right skew. The right skew makes sense in the context of League of Legends because there are many ways to gain an advantage over your opponents, not just gold, and many teams balance what they invest their first 10 minutes in, making the upper extremes of gold collected rarer.
 
 ### Bivariate Analysis
 Next, I want to examine if there is a distinction between the total gold earned by winning teams verses losing teams
@@ -222,9 +222,9 @@ For this section, I want to see if there is a significance difference in the dis
 
 **Alternative Hypothesis:** the distribution for gold earned after 10 minutes is **not** the same for winning and losing teams
 
-**Test Statistic:** absolute difference in group means, because the histogram in the EDA section shows that the earnedgold column for winning and losing teams are shifted versions of each other, which the goldat10 column should follow the same pattern
+**Test Statistic:** absolute difference in group means, because the histogram in the EDA section shows that the earnedgold column for winning and losing teams are shifted versions of each other, which the goldat10 column should follow a similar pattern as seen from the mean aggregate table
 
-**Significance Level:** 0.05
+**Significance Level:** 0.05 significance level, to lower the chances of a false positive
 
 Below is the emperical distribution for the permutation test:
 
@@ -235,7 +235,7 @@ Below is the emperical distribution for the permutation test:
   frameborder="0"
 ></iframe>
 
-The observed statistic for this permutation test is 692.01 and the p-value is 0. Since the p-value is lower than the significance level of 0.05,thus the distribution of gold earned after 10 minutes for winning and losing teams are **not** the same. In addition, with how different the observed statistic is to the simulated statistics, it seems that gold earned has a significant impact on whether a team wins or loses a match. 
+The observed statistic for this permutation test is 692.01 and the p-value is 0. Since the p-value is lower than the significance level of 0.05, the null hypothesis is rejected, thus the distribution of gold earned after 10 minutes for winning and losing teams are **not** the same. In addition, with how different the observed statistic is to the simulated statistics, it seems that gold earned has a significant impact on whether a team wins or loses a match. 
 
 ## Framing a Prediction Problem
 As seen from the last section, the distribution between the amount of gold earned after 10 minutes by winning teams is significantly different from the amount of gold earned after 10 minutes by losing teams. Due to this difference I want to see **if it is possible to predict if a team will win or lose their match by only examining stats collected after 10 minutes**. Some of the statistics that can be collected after 10 minutes are gold and experience collected, if a team claimed the first kill of the game, if a team destroyed the first guard turret of the game, etc..
@@ -243,19 +243,19 @@ As seen from the last section, the distribution between the amount of gold earne
 For the base prediction model, I will be trying to perform binary classification on the `results` column, using accuracy as the metric for evaluating my model, and splitting my data into training and testing set on a 75-25 split. I'm choosing accuracy as the metric for evaluation because the columns I will be using to predict `results` are roughly normal, thus I don't need to use other metrics.
 
 ## Baseline Model
-For this base binary classification model I will be using `goldat10`, `xpat10`, `firstblood`, and `firstdragon` columns as my features. I'm choosing these columns because these all contain statistics that can be collected within 10 minutes of a match. The columns `goldat10` and `xpat10` are both quantitative so I do not have to do any encoding on them, but the columns `firstblood` and `firstdragon` are ordinal so I will first use OneHotEncoder to transform these 2 columns before training a DecisionTreeClassifier with max_depth of 5.
+For this base binary classification model I will be using `goldat10`, `xpat10`, `firstblood`, and `firstdragon` columns as my features. The columns `goldat10` and `xpat10` are both quantitative so I do not have to do any encoding on them, but the columns `firstblood` and `firstdragon` are ordinal so I will first use OneHotEncoder to transform these 2 columns before training a DecisionTreeClassifier with max_depth of 5.
 
-After fitting the model my accuracy on the training data is 66.43% while the accuracy on the testing data is 65.48%. The accuracy is better than randomly guessing if a team will win or lose but it is not much better and this model can be improved.
+After fitting the model my accuracy on the training data is 66.43% while the accuracy on the testing data is 65.48%. The accuracy of my model is better than randomly guessing if a team will win or lose but it is not much better and this model can be improved.
 
 ## Final Model
-For the final model, I will add 2 new features: `killsat10` and `firsttower`. I'm adding these 2 features because I think these 2 features are a good metric to see the pacing of the game. League of Legends is a team versus team game so eventually you will have to fight your opponents and start working on taking down their Nexus, and these 2 new features are a good representation of who is fighting and has a slight advantage. 
+For the final model, I will add 2 new features: `killsat10` and `firsttower`. I'm adding these 2 features because I think these 2 features are a good metric to see the pacing of the game. League of Legends is a team versus team game so eventually you will have to fight your opponents and start working on taking down their Nexus, and these 2 new features are a good representation of which team is winning fights and has an advantage. 
 
-For encoding the columns, `killsat10` column is a quantitative column but it is highly right skewered so I will use StandardScalar to standardize the column. `firsttower` is an ordinal column so I will OneHotEncode the column. Finally, I want to tune max_depth and max_features for the final model because I think tuning these 2 hyperparameters will benefit my model the most. Using GridSearchCV the best hyperparameter to use is 2 for max_depth and 11 for max_features.
+For encoding the columns, `killsat10` column is a quantitative column but it is highly right skewed so I will use StandardScalar to standardize the column. `firsttower` is an ordinal column so I will OneHotEncode the column. Finally, I want to tune max_depth and max_features for the final model because I think tuning these 2 hyperparameters will benefit my model the most. Using GridSearchCV the best hyperparameter to use is 2 for max_depth and 11 for max_features.
 
-With the additional features and tuned hyperparameters for the binary classification model the accuracy for the training data is now 68.52% and the accuracy for the testing data is now 67.83%. This is an improvement over the accuracy of the base model but unfortunately still not great compared to simple random guesses.
+With the additional features and tuned hyperparameters, the binary classification model the accuracy for the training data is now 68.52% and the accuracy for the testing data is now 67.83%. This is an improvement over the accuracy of the base model but unfortunately still not great compared to simple random guesses.
 
 ## Fairness Analysis
-For this section I want to see if my model is fair towards different groups. The question I want to answer is **does my model perform worse for matches that are longer than 28 minutes than it does for matches that are shorter than 28 minutes?**
+For this section I want to see if my model is fair towards different groups, specifically between matches that are shorter/longer. The question I want to answer is **does my model perform worse for matches that are longer than 28 minutes than it does for matches that are shorter than 28 minutes?**
 
 **Null Hypothesis:** my model is fair, meaning its accuracy for matches lasting longer than 28 minutes is the same for matches lasting shorter tahn 28 minutes.
 
@@ -276,4 +276,4 @@ Below is the emperical distribution for the fairness analysis:
 
 The observed statistic is -0.253 and the p-value is 0. Since the p-value is lower than the significance level of 0.05, I reject the null hypothesis, thus my model is unfair towards matches longer than 28 minutes. 
 
-In the context of League of Legends this result makes sense, the longer the matches go on the more chances your opponent can nullify your advantage, thus gaining an advantage within the first 10 minutes is of less significance the longer the matches go on and it is more important to keep your advantage.
+In the context of League of Legends this result makes sense, the longer the matches go on the more chances your opponent has to fight back and level the advantage, thus gaining an advantage within the first 10 minutes is of less significance the longer the matches go on and it is more important to keep your advantage.
